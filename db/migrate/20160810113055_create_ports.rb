@@ -7,5 +7,7 @@ class CreatePorts < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :ports, [:lat, :lng]
   end
 end

@@ -1,4 +1,4 @@
-class OppositeTypeFinder
+class OppositePositionTypeFinder
   pattr_initialize :type
 
   def call

@@ -1,7 +1,6 @@
 class PositionsController < ApplicationController
-  before_action :set_position, only: [:edit, :update, :destroy]
+  before_action :set_position, only: [:show, :edit, :update, :destroy]
   before_action :prepare_positions, only: [:new, :edit, :create, :update]
-  before_action :reverse_type, only: [:show]
 
   # GET /positions
   # GET /positions.json
@@ -12,6 +11,9 @@ class PositionsController < ApplicationController
   # GET /positions/1
   # GET /positions/1.json
   def show
+    @position = PositionService.new(@position).call
+
+    render nothing: true if @position.blank?
   end
 
   # GET /positions/new
@@ -30,7 +32,7 @@ class PositionsController < ApplicationController
 
     respond_to do |format|
       if @position.save
-        format.html { redirect_to @position, notice: 'Position was successfully created.' }
+        format.html { redirect_to positions_url, notice: 'Position was successfully created.' }
         format.json { render :show, status: :created, location: @position }
       else
         format.html { render :new }
@@ -44,7 +46,7 @@ class PositionsController < ApplicationController
   def update
     respond_to do |format|
       if @position.update(position_params)
-        format.html { redirect_to @position, notice: 'Position was successfully updated.' }
+        format.html { redirect_to positions_url, notice: 'Position was successfully updated.' }
         format.json { render :show, status: :ok, location: @position }
       else
         format.html { render :edit }
@@ -66,7 +68,7 @@ class PositionsController < ApplicationController
   private
 
   def set_position
-    @position.becomes!(@position.reverse_type)
+    @position = Position.find(params[:id])
   end
 
   def position_params
@@ -84,14 +86,5 @@ class PositionsController < ApplicationController
   def prepare_positions
     @types = Position::TYPES.map { |type, human_name| [human_name, type] }
     @ports = Port.order(:title).map { |port| [port.title, port.id] }
-  end
-
-  def opposite_data
-    opts = {
-      class_name: OppositeTypeFinder.new(@position.type).call,
-      port: @position
-    }
-    @positions = PositionFinder.new()
-    opposite_type = 
   end
 end
