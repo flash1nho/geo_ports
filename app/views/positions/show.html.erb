@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @position.title %>
+</p>
+
+<p>
+  <strong>Port:</strong>
+  <%= @position.port_id %>
+</p>
+
+<p>
+  <strong>Date open:</strong>
+  <%= @position.date_open %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @position.capacity %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @position.type %>
+</p>
+
+<%= link_to 'Edit', edit_position_path(@position) %> |
+<%= link_to 'Back', positions_path %>

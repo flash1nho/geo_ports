@@ -1,0 +1,2 @@
+class GeoPositionFinder
+end
