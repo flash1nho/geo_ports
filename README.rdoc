@@ -20,7 +20,7 @@ Use API:
 
 JSON Result:
 
-```json
+```javascript
 {
   "id":3,
   "title":"2",
