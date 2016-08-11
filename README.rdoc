@@ -20,7 +20,7 @@ Use API:
 
 JSON Result:
 
-```javascript
+<pre><code>
 {
   "id":3,
   "title":"2",
@@ -32,7 +32,7 @@ JSON Result:
   "updated_at":"2016-08-11T06:52:48.280Z",
   "url":"http://localhost:3000/positions/3.json"
 }
-```
+</code></pre>
 
 Run RSpec tests:
 
