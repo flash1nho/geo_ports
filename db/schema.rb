@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20160810113857) do
     t.datetime "updated_at"
   end
 
+  add_index "ports", ["lat", "lng"], name: "index_ports_on_lat_and_lng", using: :btree
+
 # Could not dump table "positions" because of following StandardError
 #   Unknown type 'positions_enum_type' for column 'type'
 

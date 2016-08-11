@@ -4,5 +4,4 @@ class Port < ActiveRecord::Base
   validates :title, :lat, :lng, presence: true
 
   reverse_geocoded_by :lat, :lng
-  after_validation :reverse_geocode
 end

@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  resources :ports
   resources :positions
   resources :positions_vessels, controller: :positions
   resources :positions_cargos, controller: :positions
+  resources :ports
+
+  root 'positions#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

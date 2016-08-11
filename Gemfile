@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.16'
 # Use postgresql as the database for Active Record
@@ -29,6 +28,12 @@ gem 'spring',        group: :development
 gem 'foreigner', '~> 1.7.4'
 gem 'geocoder', '~> 1.3.7'
 gem 'attr_extras', '~> 5.0.0'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails', '~> 4.7.0'
+  gem 'faker', '~> 1.6.6'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
